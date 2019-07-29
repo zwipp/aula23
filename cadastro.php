@@ -8,10 +8,25 @@
 		// Verificando o post
 		$erros = errosNoPost();
 
+		//verificando se a foto chegou
+		if ($_FILES['foto']) {
+			if ($_FILES['foto']['error'] == 0) {
+				//salvar a foto de forma corretamente
+				move_uploaded_file($_FILES['foto']['tmp_name'],'./fotos/'.$_FILES['foto']['name']);
+
+				//salvando o nome do arquivo definitivo
+
+				$arquivo_def = './fotos/'.$_FILES['foto']['name'];
+			}
+			else {
+				$erros = 'errUpload';
+			}
+		}
+
 		if(count($erros) == 0){
 
 			// Adicionar funcionario ao arquivo json
-			addFuncionario($_POST['nome'],$_POST['email'],$_POST['senha']);
+			addFuncionario($_POST['nome'],$_POST['email'],$_POST['senha'],$arquivo_def);
 		
 		}
 
