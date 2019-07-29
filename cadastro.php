@@ -61,6 +61,14 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Cadastro de Funcionários</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
+	
+	<style>
+		.foto_func{
+			width: 32px;
+			border-radius: 16px;
+		}
+	</style>
+	
 </head>
 <body>
 	<div class="container">
@@ -68,6 +76,7 @@
 			<ul class="col-sm-12 col-md-4 list-group">
 				<?php foreach($funcionarios as $c): ?>
 				<li class="list-group-item">
+					<img src="<?= $c['foto'];  ?>" alt="" class="foto_func">
 					<span><?= $c['nome'];  ?></span> : 
 					<span><?= $c['email'];  ?></span>
 				</li>
