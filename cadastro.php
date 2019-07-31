@@ -19,7 +19,7 @@
 				$arquivo_def = './fotos/'.$_FILES['foto']['name'];
 			}
 			else {
-				$erros = 'errUpload';
+				$erros []= 'errUpload';
 			}
 		}
 

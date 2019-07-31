@@ -6,6 +6,11 @@
     if ($_POST) {
         $loginOK = logar($_POST['email'],$_POST['senha']);
         if ($loginOK) {
+
+            //criando a session
+            session_start();
+            $_SESSION['logado'] = true;
+
             //mandando pra pagina do usuario
             header('location: index.php');
         }
